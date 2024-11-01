@@ -5,7 +5,6 @@ function TodoListTask() {
   const { state, dispatch } = useContext(TaskContext);
 
   const handleCheckboxChange = (nameTask) => {
-    // Despachar la acción para alternar la tarea
     dispatch({ type: 'TOGGLE_TASK', payload: nameTask });
   };
 
@@ -13,7 +12,6 @@ function TodoListTask() {
     dispatch({ type: 'DELETE_TASK', payload: nameTask });
   }
 
-  // Usa filteredTasks si hay tareas filtradas, de lo contrario usa todas las tareas
   const tasksToDisplay = state.filteredTasks.length > 0 ? state.filteredTasks : state.tasks;
 
   return (

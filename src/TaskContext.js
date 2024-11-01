@@ -39,6 +39,11 @@ const taskReducer = (state, action) => {
         ...state,
         filteredTasks: action.payload,
       };
+      case 'ADD_TASK':
+      return {
+        ...state,
+        tasks: [...state.tasks, { nameTask: action.payload, isCompleted: false }],
+      };
       case 'DELETE_TASK':
       return {
         ...state,

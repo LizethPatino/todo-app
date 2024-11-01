@@ -10,7 +10,6 @@ function TodoSearch() {
     setSearchTerm(value);
 
     if (value === '') {
-      // Si el campo de búsqueda está vacío, resetear el filtro
       dispatch({ type: 'RESET_FILTER' });
     } else {
       const filteredTasks = state.tasks.filter(task =>
