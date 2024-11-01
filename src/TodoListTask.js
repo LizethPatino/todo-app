@@ -1,18 +1,20 @@
-function TodoListTask({ listTasks, onCompleteTasks }) {
-  
+import React, { useContext } from 'react';
+import { TaskContext } from './TaskContext';
+
+function TodoListTask() {
+  const { state, dispatch } = useContext(TaskContext);
+
   const handleCheckboxChange = (nameTask) => {
-    onCompleteTasks(
-      listTasks.map((task) =>
-        task.nameTask === nameTask
-          ? { ...task, isCompleted: !task.isCompleted }
-          : task
-      )
-    );
+    // Despachar la acción para alternar la tarea
+    dispatch({ type: 'TOGGLE_TASK', payload: nameTask });
   };
+
+  // Usa filteredTasks si hay tareas filtradas, de lo contrario usa todas las tareas
+  const tasksToDisplay = state.filteredTasks.length > 0 ? state.filteredTasks : state.tasks;
 
   return (
     <ul>
-      {listTasks.map((task) => (
+      {tasksToDisplay.map(task => (
         <li key={task.nameTask}>
           <input
             type="checkbox"

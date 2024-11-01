@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { TaskContext } from './TaskContext';
 
-function TodoSearch({listTasks, onSearchResults}) {
-
+function TodoSearch() {
+  const { state, dispatch } = useContext(TaskContext);
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
 
-  const filteredTasks =  listTasks.filter(task => task.nameTask.toLowerCase().includes(value.toLowerCase()));
-  onSearchResults(filteredTasks);
-  }
+    if (value === '') {
+      // Si el campo de búsqueda está vacío, resetear el filtro
+      dispatch({ type: 'RESET_FILTER' });
+    } else {
+      const filteredTasks = state.tasks.filter(task =>
+        task.nameTask.toLowerCase().includes(value.toLowerCase())
+      );
+      dispatch({ type: 'FILTER_TASKS', payload: filteredTasks });
+    }
+  };
 
-    return (
-      <>
-        <input type="text" value={searchTerm} placeholder='Search' onChange={handleSearch}/>
-      </>
-    );
-  }  
+  return (
+    <input
+      type="text"
+      value={searchTerm}
+      placeholder='Search'
+      onChange={handleSearch}
+    />
+  );
+}
 
 export default TodoSearch;
