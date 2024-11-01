@@ -21,14 +21,11 @@ const taskReducer = (state, action) => {
           ? { ...task, isCompleted: !task.isCompleted }
           : task
       );
-
-      // Si hay tareas filtradas, también actualiza filteredTasks
       const updatedFilteredTasks = state.filteredTasks.length > 0
         ? updatedTasks.filter(task =>
             state.filteredTasks.some(filteredTask => filteredTask.nameTask === task.nameTask)
           )
         : [];
-
       return {
         ...state,
         tasks: updatedTasks,
@@ -53,7 +50,7 @@ const taskReducer = (state, action) => {
     case 'RESET_FILTER':
       return {
         ...state,
-        filteredTasks: [], // Resetea el filtro
+        filteredTasks: [],
       };
     default:
       return state;
