@@ -9,6 +9,10 @@ function TodoListTask() {
     dispatch({ type: 'TOGGLE_TASK', payload: nameTask });
   };
 
+  const handleRemoveTask = (nameTask) => {
+    dispatch({ type: 'DELETE_TASK', payload: nameTask });
+  }
+
   // Usa filteredTasks si hay tareas filtradas, de lo contrario usa todas las tareas
   const tasksToDisplay = state.filteredTasks.length > 0 ? state.filteredTasks : state.tasks;
 
@@ -22,7 +26,7 @@ function TodoListTask() {
             onChange={() => handleCheckboxChange(task.nameTask)}
           />
           {task.isCompleted ? <del>{task.nameTask}</del> : task.nameTask}
-          <span> icono de cerrar</span>
+          <button onClick={() => handleRemoveTask(task.nameTask)}>Eliminar</button>
         </li>
       ))}
     </ul>
