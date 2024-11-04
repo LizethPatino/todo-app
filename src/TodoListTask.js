@@ -32,7 +32,7 @@ function TodoListTask() {
             {task.isCompleted ? <del>{task.nameTask}</del> : task.nameTask}
           </div>
           <button onClick={() => handleRemoveTask(task.nameTask)}>
-            <TrashIcon className="h-6 w-6 text-red-500" />
+            <TrashIcon className="h-6 w-6 text-red-500 hover:text-red-700" />
           </button>
         </li>
       ))}

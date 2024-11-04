@@ -1,30 +1,42 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import TodoTitle from "./TodoTitle";
 import TodoSearch from "./TodoSearch";
 import TodoListTask from "./TodoListTask";
 import { TaskProvider } from "./TaskContext";
+import TodoModal from "./TodoModal";
 import TodoAddTask from "./TodoAddTask";
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <TaskProvider>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md p-8">
-        <h1 className="text-2xl font-bold text-center">Your Tasks</h1>
-        <div className="mb-6">
-          <TodoTitle />
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="relative w-full max-w-2xl bg-white border border-gray-200 rounded-lg shadow-md p-10">
+          <h1 className="text-2xl font-bold text-center">Your Tasks</h1>
+          <div className="mb-6">
+            <TodoTitle />
+          </div>
+          <div className="mb-6">
+            <TodoSearch />
+          </div>
+          <div className="mb-6">
+            <TodoListTask />
+          </div>
         </div>
-        <div className="mb-6">
-          <TodoSearch />
-        </div>
-        <div className="mb-6">
-          <TodoListTask />
-        </div>
+        <button className="absolute bottom-4 right-4" onClick={toggleModal}>
+          <PlusCircleIcon className="w-14 h-14 text-violet-500 hover:text-violet-700" />
+        </button>
       </div>
-
-      <div>
+      <TodoModal isOpen={isModalOpen} toggleModal={toggleModal}>
         <TodoAddTask />
-      </div>
+      </TodoModal>
     </TaskProvider>
   );
 }
