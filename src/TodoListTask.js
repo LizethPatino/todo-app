@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { TaskContext } from './TaskContext';
+import { TrashIcon } from '@heroicons/react/24/outline'
 
 function TodoListTask() {
   const { state, dispatch } = useContext(TaskContext);
@@ -24,7 +25,7 @@ function TodoListTask() {
             onChange={() => handleCheckboxChange(task.nameTask)}
           />
           {task.isCompleted ? <del>{task.nameTask}</del> : task.nameTask}
-          <button onClick={() => handleRemoveTask(task.nameTask)}>Eliminar</button>
+          <button onClick={() => handleRemoveTask(task.nameTask)}><TrashIcon className="size-6 text-red-500"/></button>
         </li>
       ))}
     </ul>

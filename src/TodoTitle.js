@@ -7,7 +7,7 @@ function TodoTitle() {
   const completedTasks = state.tasks.filter(task => task.isCompleted).length;
     return (
       <>
-         <h2>Completed {completedTasks} to {totalTasks}</h2>
+         <h2 className='font-bold'>Completed {completedTasks} to {totalTasks}</h2>
       </>
     );
   }

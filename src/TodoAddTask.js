@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { TaskContext } from './TaskContext';
+import { PlusCircleIcon } from '@heroicons/react/24/outline'
 
 function TodoAddTask() {
   const { dispatch } = useContext(TaskContext);
@@ -21,7 +22,7 @@ function TodoAddTask() {
         onChange={(e) => setNewTask(e.target.value)}
         placeholder="Agregar nueva tarea"
       />
-      <button type="submit">Agregar</button>
+      <button type="submit"><PlusCircleIcon className="size-6 text-emerald-500"/></button>
     </form>
   );
 }

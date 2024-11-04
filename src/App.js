@@ -6,13 +6,12 @@ import TodoListTask from './TodoListTask';
 import { TaskProvider } from './TaskContext';
 import TodoAddTask from './TodoAddTask';
 
-
 function App() {
 
   return (
     <TaskProvider>
       <div className="App">
-          <h1>Your Tasks</h1>
+          <h1 className="text-2xl font-bold" >Your Tasks</h1>
           <TodoTitle/>
           <TodoSearch/>
           <TodoListTask/> 
