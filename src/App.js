@@ -17,27 +17,28 @@ function App() {
 
   return (
     <TaskProvider>
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="relative w-full max-w-2xl bg-white border border-gray-200 rounded-lg shadow-md p-10">
-          <h1 className="text-2xl font-bold text-center">Your Tasks</h1>
-          <div className="mb-6">
-            <TodoTitle />
-          </div>
-          <div className="mb-6">
-            <TodoSearch />
-          </div>
-          <div className="mb-6">
-            <TodoListTask />
-          </div>
+    <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+      <div className="relative w-full max-w-2xl bg-white border border-gray-200 rounded-lg shadow-md p-10">
+        <h1 className="text-2xl font-bold text-center">Your Tasks</h1>
+        <div className="mb-6">
+          <TodoTitle />
         </div>
-        <button className="absolute bottom-4 right-4" onClick={toggleModal}>
-          <PlusCircleIcon className="w-14 h-14 text-violet-500 hover:text-violet-700" />
-        </button>
+        <div className="mb-6">
+          <TodoSearch />
+        </div>
+        <div className="mb-6">
+          <TodoListTask />
+        </div>
       </div>
-      <TodoModal isOpen={isModalOpen} toggleModal={toggleModal}>
-        <TodoAddTask />
-      </TodoModal>
-    </TaskProvider>
+      <button className="absolute bottom-4 right-4" onClick={toggleModal}>
+        <PlusCircleIcon className="w-14 h-14 text-violet-500 hover:text-violet-700" />
+      </button>
+    </div>
+    <TodoModal isOpen={isModalOpen} toggleModal={toggleModal}>
+      <TodoAddTask />
+    </TodoModal>
+  </TaskProvider>
+  
   );
 }
 
