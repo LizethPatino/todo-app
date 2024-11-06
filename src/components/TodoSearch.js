@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { TaskContext } from "./TaskContext";
+import { TaskContext } from "../context/TaskContext";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 function TodoSearch() {
