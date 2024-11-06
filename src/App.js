@@ -1,11 +1,11 @@
 import "./App.css";
 import React, { useState } from "react";
-import TodoTitle from "./TodoTitle";
-import TodoSearch from "./TodoSearch";
-import TodoListTask from "./TodoListTask";
-import { TaskProvider } from "./TaskContext";
-import TodoModal from "./TodoModal";
-import TodoAddTask from "./TodoAddTask";
+import TodoTitle from "./components/TodoTitle";
+import TodoSearch from "./components/TodoSearch";
+import TodoListTask from "./components/TodoListTask";
+import { TaskProvider } from "./context/TaskContext";
+import TodoModal from "./components/TodoModal";
+import TodoAddTask from "./components/TodoAddTask";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 function App() {

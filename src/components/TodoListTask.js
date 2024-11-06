@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TaskContext } from "./TaskContext";
+import { TaskContext } from "../context/TaskContext";
 import { TrashIcon } from "@heroicons/react/24/outline";
 
 function TodoListTask() {

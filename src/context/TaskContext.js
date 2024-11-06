@@ -4,11 +4,11 @@ export const TaskContext = createContext();
 
 const initialState = {
   tasks: [
-    { nameTask: 'Sacar a mi perrito al baño', isCompleted: true },
-    { nameTask: 'Tender Cama', isCompleted: true },
-    { nameTask: 'Vestirme', isCompleted: false },
-    { nameTask: 'Hacer dibujo', isCompleted: false },
-    { nameTask: 'Hacer ejercicio', isCompleted: true },
+    { nameTask: 'Take my dog out to the bathroom', isCompleted: true },
+    { nameTask: 'Make the bed', isCompleted: true },
+    { nameTask: 'Get dressed', isCompleted: false },
+    { nameTask: 'Draw', isCompleted: false },
+    { nameTask: 'Exercise', isCompleted: true },
   ],
   filteredTasks: [],
 };
